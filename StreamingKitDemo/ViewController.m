@@ -14,9 +14,18 @@
 
 @property (nonatomic, strong) STKAudioPlayer *audioplayer;
 
+- (IBAction)play:(UIButton *)playButton;
+
 @end
 
 @implementation ViewController
+
+- (IBAction)play:(UIButton *)playButton
+{
+    [self.audioplayer play:@"http://slseduction.parseapp.com/music/SimpleThings-Single.mp3"];
+    
+    playButton.titleLabel.text = @"Stop";
+}
 
 #pragma mark - UIViewController
 #pragma mark Managing the View
@@ -28,7 +37,6 @@
     self.audioplayer = [[STKAudioPlayer alloc] init];
     self.audioplayer.delegate = self;
     
-    [self.audioplayer play:@"http://slseduction.parseapp.com/music/SimpleThings-Single.mp3"];
 }
 
 #pragma mark - STKAudioPlayerDelegate Protocol
