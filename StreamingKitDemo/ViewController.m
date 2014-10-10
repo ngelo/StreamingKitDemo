@@ -15,39 +15,96 @@
 
 @interface ViewController () <STKAudioPlayerDelegate>
 
+@property (nonatomic, weak) IBOutlet UIButton *previousTrackButton;
+@property (nonatomic, weak) IBOutlet UIButton *nextTrackButton;
+
+@property (nonatomic, weak) IBOutlet UILabel *trackTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *trackArtistAlbumLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *albumArtworkImageView;
+
 @property (nonatomic, strong) STKAudioPlayer *audioplayer;
 
 @property (nonatomic, strong) NSArray *tracks;
+@property (nonatomic) NSUInteger currentTrackIndex;
 
 - (IBAction)toggleAudioPlayer:(UIButton *)toggleAudioPlayerButton;
+- (IBAction)playPreviousTrack:(UIButton *)previousTrackButton;
+- (IBAction)playNextTrack:(UIButton *)nextTrackButton;
+- (IBAction)volumeDidChange:(UISlider *)volumeSlider;
+
+- (void)playCurrentTrack;
 
 @end
 
 @implementation ViewController
 
+- (void)setCurrentTrackIndex:(NSUInteger)currentTrackIndex
+{
+    _currentTrackIndex = currentTrackIndex;
+    
+    if (_currentTrackIndex == 0) {
+        self.previousTrackButton.enabled = NO;
+        self.nextTrackButton.enabled = YES;
+    } else if (_currentTrackIndex == [self.tracks count] - 1) {
+        self.previousTrackButton.enabled = YES;
+        self.nextTrackButton.enabled = NO;
+    } else {
+        self.previousTrackButton.enabled = YES;
+        self.nextTrackButton.enabled = YES;
+    }
+}
+
 - (IBAction)toggleAudioPlayer:(UIButton *)toggleAudioPlayerButton
 {
-    // Stop
+    // Pause the current track.
     if (self.audioplayer.state == STKAudioPlayerStatePlaying) {
-        [self.audioplayer stop];
+        [self.audioplayer pause];
         
-        [toggleAudioPlayerButton setTitle:@"Play" forState:UIControlStateNormal];
+        [toggleAudioPlayerButton setImage:[UIImage imageNamed:@"Play"] forState:UIControlStateNormal];
     }
     
-    // Play
+    // Play the current track.
     else if (self.audioplayer.state == STKAudioPlayerStatePaused ||
-             self.audioplayer.state == STKAudioPlayerStateStopped ||
              self.audioplayer.state == STKAudioPlayerStateReady) {
         // Play the song.
-        [self.audioplayer play:@"http://slseduction.parseapp.com/music/SimpleThings-Single.mp3"];
+        [self playCurrentTrack];
         
-        [toggleAudioPlayerButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [toggleAudioPlayerButton setImage:@"Pause" forState:UIControlStateNormal];
     }
+}
+
+
+- (IBAction)playPreviousTrack:(UIButton *)previousTrackButton
+{
+    self.currentTrackIndex--;
     
-    else {
-        NSLog(@"IDK WHAT HAPPENED");
-        NSLog(@"State: %d", self.audioplayer.state);
-    }
+    [self playCurrentTrack];
+}
+
+- (IBAction)playNextTrack:(UIButton *)previousTrackButton
+{
+    self.currentTrackIndex++;
+    
+    [self playCurrentTrack];
+}
+
+- (IBAction)volumeDidChange:(UISlider *)volumeSlider
+{
+    self.audioplayer.volume = volumeSlider.value;
+}
+
+- (void)playCurrentTrack
+{
+    // Get the current track.
+    Track *currentTrack = [self.tracks objectAtIndex:self.currentTrackIndex];
+    
+    // Update the UI elements 
+    self.trackTitleLabel.text = currentTrack.title;
+    self.trackArtistAlbumLabel.text = [NSString stringWithFormat:@"%@ -- %@", currentTrack.artist, currentTrack.album];
+    self.albumArtworkImageView.image = currentTrack.albumArtwork;
+    
+    // Start streaming the track.
+    [self.audioplayer playURL:currentTrack.streamingURL];
 }
 
 // Observer pattern implementation.
@@ -68,7 +125,8 @@
     self.audioplayer.delegate = self;
     
     self.tracks = [Track allSongs];
-
+    self.currentTrackIndex = 0;
+    
     // Observer pattern implementation.
 //    [self.audioplayer addObserver:self
 //                       forKeyPath:@"state"
@@ -81,6 +139,9 @@
 
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer didStartPlayingQueueItemId:(NSObject *)queueItemId
 {
+    // Checking what the instance's class is for mp3 data extraction.
+    NSLog(@"Queue Item Class: %@", NSStringFromClass(queueItemId));
+    
     NSLog(@"did Start Playing song");
 }
 
@@ -97,6 +158,22 @@
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer didFinishPlayingQueueItemId:(NSObject *)queueItemId withReason:(STKAudioPlayerStopReason)stopReason andProgress:(double)progress andDuration:(double)duration
 {
     NSLog(@"Finished playing");
+    
+    // Check if last song.
+    if (self.currentTrackIndex == [self.tracks count] - 1) {
+        NSLog(@"Played last song");
+        
+        self.currentTrackIndex = 0;
+        
+        [self playCurrentTrack];
+    }
+    
+    // Play next song
+    else {
+        self.currentTrackIndex++;
+        
+        [self playCurrentTrack];
+    }
 }
 
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer unexpectedError:(STKAudioPlayerErrorCode)errorCode
