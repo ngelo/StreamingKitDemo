@@ -15,6 +15,7 @@
 		B8095C3C19E773A100AA61AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8095C3B19E773A100AA61AD /* Images.xcassets */; };
 		B8095C3F19E773A100AA61AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8095C3D19E773A100AA61AD /* LaunchScreen.xib */; };
 		B8095C4B19E773A100AA61AD /* StreamingKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C4A19E773A100AA61AD /* StreamingKitDemoTests.m */; };
+		B8095C5619E7808A00AA61AD /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C5519E7808A00AA61AD /* Track.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		B8095C4419E773A100AA61AD /* StreamingKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamingKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8095C4919E773A100AA61AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8095C4A19E773A100AA61AD /* StreamingKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingKitDemoTests.m; sourceTree = "<group>"; };
+		B8095C5419E7808A00AA61AD /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		B8095C5519E7808A00AA61AD /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		C83ED28F9CEA91C1A10BE74A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +108,8 @@
 				B8095C3B19E773A100AA61AD /* Images.xcassets */,
 				B8095C3D19E773A100AA61AD /* LaunchScreen.xib */,
 				B8095C2E19E773A100AA61AD /* Supporting Files */,
+				B8095C5419E7808A00AA61AD /* Track.h */,
+				B8095C5519E7808A00AA61AD /* Track.m */,
 			);
 			path = StreamingKitDemo;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				B8095C3719E773A100AA61AD /* ViewController.m in Sources */,
 				B8095C3419E773A100AA61AD /* AppDelegate.m in Sources */,
 				B8095C3119E773A100AA61AD /* main.m in Sources */,
+				B8095C5619E7808A00AA61AD /* Track.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
