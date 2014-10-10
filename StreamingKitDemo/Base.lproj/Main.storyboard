@@ -22,7 +22,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="play:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iXF-e6-jH5"/>
+                                    <action selector="toggleAudioPlayer:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="A6V-Zh-3pR"/>
                                 </connections>
                             </button>
                         </subviews>

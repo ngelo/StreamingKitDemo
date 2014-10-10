@@ -14,18 +14,43 @@
 
 @property (nonatomic, strong) STKAudioPlayer *audioplayer;
 
-- (IBAction)play:(UIButton *)playButton;
+- (IBAction)toggleAudioPlayer:(UIButton *)toggleAudioPlayerButton;
 
 @end
 
 @implementation ViewController
 
-- (IBAction)play:(UIButton *)playButton
+- (IBAction)toggleAudioPlayer:(UIButton *)toggleAudioPlayerButton
 {
-    [self.audioplayer play:@"http://slseduction.parseapp.com/music/SimpleThings-Single.mp3"];
+    // Stop
+    if (self.audioplayer.state == STKAudioPlayerStatePlaying) {
+        [self.audioplayer stop];
+        
+        [toggleAudioPlayerButton setTitle:@"Play" forState:UIControlStateNormal];
+    }
     
-    playButton.titleLabel.text = @"Stop";
+    // Play
+    else if (self.audioplayer.state == STKAudioPlayerStatePaused ||
+             self.audioplayer.state == STKAudioPlayerStateStopped ||
+             self.audioplayer.state == STKAudioPlayerStateReady) {
+        // Play the song.
+        [self.audioplayer play:@"http://slseduction.parseapp.com/music/SimpleThings-Single.mp3"];
+        
+        [toggleAudioPlayerButton setTitle:@"Stop" forState:UIControlStateNormal];
+    }
+    
+    else {
+        NSLog(@"IDK WHAT HAPPENED");
+        NSLog(@"State: %d", self.audioplayer.state);
+    }
 }
+
+// Observer pattern implementation.
+//
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+//{
+//    
+//}
 
 #pragma mark - UIViewController
 #pragma mark Managing the View
@@ -36,6 +61,12 @@
     
     self.audioplayer = [[STKAudioPlayer alloc] init];
     self.audioplayer.delegate = self;
+
+    // Observer pattern implementation.
+//    [self.audioplayer addObserver:self
+//                       forKeyPath:@"state"
+//                          options:NSKeyValueObservingOptionNew
+//                          context:nil];
     
 }
 
