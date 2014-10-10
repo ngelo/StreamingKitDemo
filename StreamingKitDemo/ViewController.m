@@ -99,10 +99,17 @@
     // Get the current track.
     Track *currentTrack = [self.tracks objectAtIndex:self.currentTrackIndex];
     
+    NSLog(@"%@", [currentTrack description]);
+    
     // Update the UI elements 
     self.trackTitleLabel.text = currentTrack.title;
     self.trackArtistAlbumLabel.text = [NSString stringWithFormat:@"%@ -- %@", currentTrack.artist, currentTrack.album];
     self.albumArtworkImageView.image = currentTrack.albumArtwork;
+    
+    // Stop the current track.
+    [self.audioplayer stop];
+    
+    NSLog(@"Current audio player state: %d", self.audioplayer.state);
     
     // Start streaming the track.
     [self.audioplayer playURL:currentTrack.streamingURL];
@@ -171,7 +178,7 @@
     
     // Play next song
     else {
-        self.currentTrackIndex++;
+//        self.currentTrackIndex++;
         
         [self playCurrentTrack];
     }

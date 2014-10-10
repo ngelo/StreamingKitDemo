@@ -10,6 +10,11 @@
 
 @implementation Track
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"Track:\n\tTitle: %@\n\tAlbum: %@\n\tArtist: %@", self.title, self.album, self.artist];
+}
+
 + (NSArray *)allSongs
 {
     Track *simpleThings = [[Track alloc] init];
@@ -28,10 +33,10 @@
     
     Track *obligations = [[Track alloc] init];
     obligations.title = @"Obligations";
-    inhaleTheFumes.album = @"Lost In Emerald Cove";
-    inhaleTheFumes.artist = @"Something Like Seduction";
-    inhaleTheFumes.albumArtwork = [UIImage imageNamed:@"Lost In Emerald Cove"];
-    inhaleTheFumes.streamingURL = [NSURL URLWithString:@"http://slseduction.parseapp.com/music/Obligations-LIEC.mp3"];
+    obligations.album = @"Lost In Emerald Cove";
+    obligations.artist = @"Something Like Seduction";
+    obligations.albumArtwork = [UIImage imageNamed:@"Lost In Emerald Cove"];
+    obligations.streamingURL = [NSURL URLWithString:@"http://slseduction.parseapp.com/music/Obligations-LIEC.mp3"];
     
     return @[simpleThings, inhaleTheFumes, obligations];
 }
