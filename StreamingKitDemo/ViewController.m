@@ -65,11 +65,12 @@
     
     // Play the current track.
     else if (self.audioplayer.state == STKAudioPlayerStatePaused ||
+             self.audioplayer.state == STKAudioPlayerStateStopped ||
              self.audioplayer.state == STKAudioPlayerStateReady) {
         // Play the song.
         [self playCurrentTrack];
         
-        [toggleAudioPlayerButton setImage:@"Pause" forState:UIControlStateNormal];
+        [toggleAudioPlayerButton setImage:[UIImage imageNamed:@"Pause"] forState:UIControlStateNormal];
     }
 }
 
@@ -140,9 +141,9 @@
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer didStartPlayingQueueItemId:(NSObject *)queueItemId
 {
     // Checking what the instance's class is for mp3 data extraction.
-    NSLog(@"Queue Item Class: %@", NSStringFromClass(queueItemId));
+//    NSLog(@"Queue Item Class: %@", NSStringFromClass([queueItemId class]));
     
-    NSLog(@"did Start Playing song");
+    NSLog(@"Did start playing song");
 }
 
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer didFinishBufferingSourceWithQueueItemId:(NSObject *)queueItemId
@@ -152,7 +153,7 @@
 
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState
 {
-    NSLog(@"State changed");
+    NSLog(@"Audio player state changed to %d from %d", state, previousState);
 }
 
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer didFinishPlayingQueueItemId:(NSObject *)queueItemId withReason:(STKAudioPlayerStopReason)stopReason andProgress:(double)progress andDuration:(double)duration
@@ -163,9 +164,9 @@
     if (self.currentTrackIndex == [self.tracks count] - 1) {
         NSLog(@"Played last song");
         
-        self.currentTrackIndex = 0;
+//        self.currentTrackIndex = 0;
         
-        [self playCurrentTrack];
+//        [self playCurrentTrack];
     }
     
     // Play next song
@@ -178,7 +179,17 @@
 
 - (void)audioPlayer:(STKAudioPlayer *)audioPlayer unexpectedError:(STKAudioPlayerErrorCode)errorCode
 {
-    (NSLog(@"Error"));
+    NSLog(@"Audio player encountered unexpected error #%d", errorCode);
+}
+
+- (void)audioPlayer:(STKAudioPlayer *)audioPlayer logInfo:(NSString *)line
+{
+    NSLog(@"Audio player log info: %@", line);
+}
+
+- (void)audioPlayer:(STKAudioPlayer *)audioPlayer didCancelQueuedItems:(NSArray *)queuedItems
+{
+    NSLog(@"# queue items were cancelled: %d", [queuedItems count]);
 }
 
 @end

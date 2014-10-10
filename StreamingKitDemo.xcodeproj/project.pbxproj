@@ -16,6 +16,7 @@
 		B8095C3F19E773A100AA61AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8095C3D19E773A100AA61AD /* LaunchScreen.xib */; };
 		B8095C4B19E773A100AA61AD /* StreamingKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C4A19E773A100AA61AD /* StreamingKitDemoTests.m */; };
 		B8095C5619E7808A00AA61AD /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C5519E7808A00AA61AD /* Track.m */; };
+		B88B7B5A19E7922500FD1F08 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		B8095C4A19E773A100AA61AD /* StreamingKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingKitDemoTests.m; sourceTree = "<group>"; };
 		B8095C5419E7808A00AA61AD /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		B8095C5519E7808A00AA61AD /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		B88B7B5819E7922500FD1F08 /* StreamingKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StreamingKitDemo.entitlements; sourceTree = "<group>"; };
+		B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C83ED28F9CEA91C1A10BE74A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C4685DCFD7CA5A5FD165E31 /* libPods.a in Frameworks */,
+				B88B7B5A19E7922500FD1F08 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +104,7 @@
 		B8095C2D19E773A100AA61AD /* StreamingKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B88B7B5819E7922500FD1F08 /* StreamingKitDemo.entitlements */,
 				B8095C3219E773A100AA61AD /* AppDelegate.h */,
 				B8095C3319E773A100AA61AD /* AppDelegate.m */,
 				B8095C3519E773A100AA61AD /* ViewController.h */,
@@ -143,6 +148,7 @@
 		C307509DDF796EA3CBBA304E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */,
 				1AC1DB8674BC0103A3A7E839 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -200,6 +206,11 @@
 					B8095C2A19E773A100AA61AD = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = K6MAN39573;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 					B8095C4319E773A100AA61AD = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -410,10 +421,13 @@
 			baseConfigurationReference = 0D965260A23CE774CC781707 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StreamingKitDemo/StreamingKitDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = StreamingKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -422,10 +436,13 @@
 			baseConfigurationReference = C83ED28F9CEA91C1A10BE74A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StreamingKitDemo/StreamingKitDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = StreamingKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
