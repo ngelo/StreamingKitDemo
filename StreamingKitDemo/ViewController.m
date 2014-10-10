@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) STKAudioPlayer *audioplayer;
 
+@property (nonatomic, strong) NSArray *tracks;
+
 - (IBAction)toggleAudioPlayer:(UIButton *)toggleAudioPlayerButton;
 
 @end
