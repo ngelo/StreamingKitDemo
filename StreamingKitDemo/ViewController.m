@@ -7,7 +7,10 @@
 //
 
 #import "ViewController.h"
+
 #import <StreamingKit/STKAudioPlayer.h>
+
+#import "Track.h"
 
 
 @interface ViewController () <STKAudioPlayerDelegate>
@@ -61,6 +64,8 @@
     
     self.audioplayer = [[STKAudioPlayer alloc] init];
     self.audioplayer.delegate = self;
+    
+    self.tracks = [Track allSongs];
 
     // Observer pattern implementation.
 //    [self.audioplayer addObserver:self
