@@ -8,8 +8,6 @@
 
 #import "Track.h"
 
-@import UIKit.UIImage
-
 @implementation Track
 
 + (NSArray *)allSongs

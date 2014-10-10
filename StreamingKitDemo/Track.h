@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@import UIKit.UIImage;
+
 @interface Track : NSObject
 
 @property (nonatomic, strong) NSString *title;
