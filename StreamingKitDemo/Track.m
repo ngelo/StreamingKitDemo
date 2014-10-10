@@ -8,6 +8,8 @@
 
 #import "Track.h"
 
+@import UIKit.UIImage
+
 @implementation Track
 
 + (NSArray *)allSongs
@@ -16,18 +18,21 @@
     simpleThings.title = @"Simple Things";
     simpleThings.album = @"Simple Things - Single";
     simpleThings.artist = @"Something Like Seduction";
+    simpleThings.albumArtwork = [UIImage imageNamed:@"Simple Things"];
     simpleThings.streamingURL = [NSURL URLWithString:@"http://slseduction.parseapp.com/music/SimpleThings-Single.mp3"];
     
     Track *inhaleTheFumes = [[Track alloc] init];
     inhaleTheFumes.title = @"Inhale the Fumes";
     inhaleTheFumes.album = @"Lost In Emerald Cove";
     inhaleTheFumes.artist = @"Something Like Seduction";
+    inhaleTheFumes.albumArtwork = [UIImage imageNamed:@"Lost In Emerald Cove"];
     inhaleTheFumes.streamingURL = [NSURL URLWithString:@"http://slseduction.parseapp.com/music/InhaleTheFumes-LIEC.mp3"];
     
     Track *obligations = [[Track alloc] init];
     obligations.title = @"Obligations";
     inhaleTheFumes.album = @"Lost In Emerald Cove";
     inhaleTheFumes.artist = @"Something Like Seduction";
+    inhaleTheFumes.albumArtwork = [UIImage imageNamed:@"Lost In Emerald Cove"];
     inhaleTheFumes.streamingURL = [NSURL URLWithString:@"http://slseduction.parseapp.com/music/Obligations-LIEC.mp3"];
     
     return @[simpleThings, inhaleTheFumes, obligations];

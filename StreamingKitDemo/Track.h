@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString *album;
 @property (nonatomic, strong) NSString *artist;
 
+@property (nonatomic, strong) UIImage *albumArtwork;
+
 @property (nonatomic, strong) NSURL *streamingURL;
 
 + (NSArray *)allSongs;
