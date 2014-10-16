@@ -145,6 +145,8 @@
         [self pause];
     } else if (self.state == STKAudioPlayerStatePaused) {
         [self resume];
+    } else if (self.state == STKAudioPlayerStateReady) {
+        [self playCurrentTrack];
     }
 }
 
