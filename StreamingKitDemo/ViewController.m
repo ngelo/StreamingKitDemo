@@ -70,6 +70,13 @@
         
         [toggleAudioPlayerButton setImage:[UIImage imageNamed:@"Pause"] forState:UIControlStateNormal];
     }
+    
+    // Resume playing the current track.
+    else if (self.audioPlayer.state == STKAudioPlayerStatePaused) {
+        [self.audioPlayer resume];
+        
+        [toggleAudioPlayerButton setImage:[UIImage imageNamed:@"Pause"] forState:UIControlStateNormal];
+    }
 }
 
 
