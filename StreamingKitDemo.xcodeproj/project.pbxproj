@@ -17,6 +17,7 @@
 		B8095C4B19E773A100AA61AD /* StreamingKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C4A19E773A100AA61AD /* StreamingKitDemoTests.m */; };
 		B8095C5619E7808A00AA61AD /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C5519E7808A00AA61AD /* Track.m */; };
 		B88B7B5A19E7922500FD1F08 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */; };
+		B8AE9F8219EF5A9F0098A03F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE9F8119EF5A9F0098A03F /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B8095C5519E7808A00AA61AD /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		B88B7B5819E7922500FD1F08 /* StreamingKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StreamingKitDemo.entitlements; sourceTree = "<group>"; };
 		B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B8AE9F8119EF5A9F0098A03F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C83ED28F9CEA91C1A10BE74A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AE9F8219EF5A9F0098A03F /* MediaPlayer.framework in Frameworks */,
 				9C4685DCFD7CA5A5FD165E31 /* libPods.a in Frameworks */,
 				B88B7B5A19E7922500FD1F08 /* AudioToolbox.framework in Frameworks */,
 			);
@@ -148,6 +151,7 @@
 		C307509DDF796EA3CBBA304E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8AE9F8119EF5A9F0098A03F /* MediaPlayer.framework */,
 				B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */,
 				1AC1DB8674BC0103A3A7E839 /* libPods.a */,
 			);

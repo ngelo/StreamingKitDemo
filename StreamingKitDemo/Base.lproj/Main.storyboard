@@ -44,12 +44,6 @@
                                     <action selector="playPreviousTrack:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wue-Eb-k62"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nl3-S5-FWB" userLabel="Volume Slider">
-                                <rect key="frame" x="14" y="518" width="292" height="31"/>
-                                <connections>
-                                    <action selector="volumeDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="okR-09-eex"/>
-                                </connections>
-                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SLS - Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc2-Vh-Xge" userLabel="Track Title Label">
                                 <rect key="frame" x="16" y="431" width="288" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -68,14 +62,23 @@
                                     <constraint firstAttribute="width" secondItem="g11-2d-KJF" secondAttribute="height" multiplier="1:1" id="eTa-Su-DVG"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpa-pB-ftF" customClass="MPVolumeView">
+                                <rect key="frame" x="14" y="518" width="292" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="ERy-qC-VoU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Nl3-S5-FWB" secondAttribute="trailing" constant="16" id="2m4-Ao-JW9"/>
                             <constraint firstItem="g11-2d-KJF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="3ez-h0-LuS"/>
+                            <constraint firstAttribute="trailing" secondItem="wpa-pB-ftF" secondAttribute="trailing" constant="14" id="6ow-DL-ej7"/>
                             <constraint firstAttribute="bottom" secondItem="ci9-hP-Zu7" secondAttribute="bottom" constant="58" id="8jk-Nk-JFN"/>
+                            <constraint firstAttribute="bottom" secondItem="wpa-pB-ftF" secondAttribute="bottom" constant="19" id="ATG-Hq-JY6"/>
                             <constraint firstItem="Lfx-2j-YHS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="BUl-Y3-SDJ"/>
                             <constraint firstAttribute="bottom" secondItem="f6B-DN-CFp" secondAttribute="bottom" constant="58" id="FTG-UK-kVm"/>
+                            <constraint firstAttribute="centerX" secondItem="wpa-pB-ftF" secondAttribute="centerX" id="HEh-dv-bPd"/>
                             <constraint firstAttribute="centerX" secondItem="Jc2-Vh-Xge" secondAttribute="centerX" id="N2P-nr-ZGs"/>
                             <constraint firstAttribute="trailing" secondItem="Jc2-Vh-Xge" secondAttribute="trailing" constant="16" id="Nef-Ab-yWg"/>
                             <constraint firstAttribute="trailing" secondItem="8nw-n0-Sd5" secondAttribute="trailing" constant="16" id="RwN-ba-pOY"/>
@@ -85,8 +88,7 @@
                             <constraint firstAttribute="centerX" secondItem="f6B-DN-CFp" secondAttribute="centerX" id="gsW-mC-2Hb"/>
                             <constraint firstItem="Jc2-Vh-Xge" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="hOc-bo-sP2"/>
                             <constraint firstAttribute="trailing" secondItem="ci9-hP-Zu7" secondAttribute="trailing" constant="16" id="hUk-uo-FO3"/>
-                            <constraint firstItem="Nl3-S5-FWB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="vqr-y9-nT8"/>
-                            <constraint firstAttribute="bottom" secondItem="Nl3-S5-FWB" secondAttribute="bottom" constant="20" id="xDg-ny-iz1"/>
+                            <constraint firstItem="wpa-pB-ftF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="14" id="wnv-gG-Afm"/>
                             <constraint firstAttribute="bottom" secondItem="Lfx-2j-YHS" secondAttribute="bottom" constant="58" id="xOZ-eH-5RE"/>
                             <constraint firstAttribute="bottom" secondItem="Jc2-Vh-Xge" secondAttribute="bottom" constant="116" id="ypH-mp-1TO"/>
                             <constraint firstAttribute="trailing" secondItem="g11-2d-KJF" secondAttribute="trailing" id="yrl-PU-pYa"/>

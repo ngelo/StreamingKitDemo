@@ -30,7 +30,6 @@
 - (IBAction)toggleAudioPlayer:(UIButton *)toggleAudioPlayerButton;
 - (IBAction)playPreviousTrack:(UIButton *)previousTrackButton;
 - (IBAction)playNextTrack:(UIButton *)nextTrackButton;
-- (IBAction)volumeDidChange:(UISlider *)volumeSlider;
 
 - (void)playCurrentTrack;
 
@@ -89,10 +88,6 @@
     [self playCurrentTrack];
 }
 
-- (IBAction)volumeDidChange:(UISlider *)volumeSlider
-{
-    self.audioplayer.volume = volumeSlider.value;
-}
 
 - (void)playCurrentTrack
 {
