@@ -10,7 +10,7 @@
 		9C4685DCFD7CA5A5FD165E31 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC1DB8674BC0103A3A7E839 /* libPods.a */; };
 		B8095C3119E773A100AA61AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C3019E773A100AA61AD /* main.m */; };
 		B8095C3419E773A100AA61AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C3319E773A100AA61AD /* AppDelegate.m */; };
-		B8095C3719E773A100AA61AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C3619E773A100AA61AD /* ViewController.m */; };
+		B8095C3719E773A100AA61AD /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C3619E773A100AA61AD /* AudioPlayerViewController.m */; };
 		B8095C3A19E773A100AA61AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8095C3819E773A100AA61AD /* Main.storyboard */; };
 		B8095C3C19E773A100AA61AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8095C3B19E773A100AA61AD /* Images.xcassets */; };
 		B8095C3F19E773A100AA61AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8095C3D19E773A100AA61AD /* LaunchScreen.xib */; };
@@ -39,8 +39,8 @@
 		B8095C3019E773A100AA61AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8095C3219E773A100AA61AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B8095C3319E773A100AA61AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B8095C3519E773A100AA61AD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B8095C3619E773A100AA61AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B8095C3519E773A100AA61AD /* AudioPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayerViewController.h; sourceTree = "<group>"; };
+		B8095C3619E773A100AA61AD /* AudioPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerViewController.m; sourceTree = "<group>"; };
 		B8095C3919E773A100AA61AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8095C3B19E773A100AA61AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B8095C3E19E773A100AA61AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 				B88B7B5819E7922500FD1F08 /* StreamingKitDemo.entitlements */,
 				B8095C3219E773A100AA61AD /* AppDelegate.h */,
 				B8095C3319E773A100AA61AD /* AppDelegate.m */,
-				B8095C3519E773A100AA61AD /* ViewController.h */,
-				B8095C3619E773A100AA61AD /* ViewController.m */,
+				B8095C3519E773A100AA61AD /* AudioPlayerViewController.h */,
+				B8095C3619E773A100AA61AD /* AudioPlayerViewController.m */,
 				B8095C3819E773A100AA61AD /* Main.storyboard */,
 				B8095C3B19E773A100AA61AD /* Images.xcassets */,
 				B8095C3D19E773A100AA61AD /* LaunchScreen.xib */,
@@ -307,7 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8095C3719E773A100AA61AD /* ViewController.m in Sources */,
+				B8095C3719E773A100AA61AD /* AudioPlayerViewController.m in Sources */,
 				B8095C3419E773A100AA61AD /* AppDelegate.m in Sources */,
 				B8AE9F8519EF5F790098A03F /* AudioPlayer.m in Sources */,
 				B8095C3119E773A100AA61AD /* main.m in Sources */,
