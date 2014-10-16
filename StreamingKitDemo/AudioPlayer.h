@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong, readonly) NSArray *tracks;
 @property (nonatomic, strong, readonly) Track *currentTrack;
+@property (nonatomic, readonly) NSUInteger currentTrackIndex;
 
 #pragma mark Creating and Initializing an Audio Player
 
@@ -32,5 +33,7 @@
 - (void)playCurrentTrack;
 - (void)playPreviousTrack;
 - (void)playNextTrack;
+
+- (void)togglePlayPause;
 
 @end

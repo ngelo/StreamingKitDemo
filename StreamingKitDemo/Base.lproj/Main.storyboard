@@ -99,6 +99,7 @@
                         <outlet property="albumArtworkImageView" destination="g11-2d-KJF" id="Ml5-8Y-pYF"/>
                         <outlet property="nextTrackButton" destination="ci9-hP-Zu7" id="sU9-wb-DHX"/>
                         <outlet property="previousTrackButton" destination="Lfx-2j-YHS" id="Sz8-Zg-J5f"/>
+                        <outlet property="toggleAudioPlayerButton" destination="f6B-DN-CFp" id="5k6-lV-8xg"/>
                         <outlet property="trackArtistAlbumLabel" destination="Jc2-Vh-Xge" id="S2e-jq-7aY"/>
                         <outlet property="trackTitleLabel" destination="8nw-n0-Sd5" id="YAl-4n-FOa"/>
                     </connections>

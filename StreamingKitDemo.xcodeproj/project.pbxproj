@@ -18,6 +18,7 @@
 		B8095C5619E7808A00AA61AD /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = B8095C5519E7808A00AA61AD /* Track.m */; };
 		B88B7B5A19E7922500FD1F08 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */; };
 		B8AE9F8219EF5A9F0098A03F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AE9F8119EF5A9F0098A03F /* MediaPlayer.framework */; };
+		B8AE9F8519EF5F790098A03F /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AE9F8419EF5F790098A03F /* AudioPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B88B7B5819E7922500FD1F08 /* StreamingKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StreamingKitDemo.entitlements; sourceTree = "<group>"; };
 		B88B7B5919E7922500FD1F08 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B8AE9F8119EF5A9F0098A03F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B8AE9F8319EF5F790098A03F /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		B8AE9F8419EF5F790098A03F /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		C83ED28F9CEA91C1A10BE74A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +121,8 @@
 				B8095C2E19E773A100AA61AD /* Supporting Files */,
 				B8095C5419E7808A00AA61AD /* Track.h */,
 				B8095C5519E7808A00AA61AD /* Track.m */,
+				B8AE9F8319EF5F790098A03F /* AudioPlayer.h */,
+				B8AE9F8419EF5F790098A03F /* AudioPlayer.m */,
 			);
 			path = StreamingKitDemo;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			files = (
 				B8095C3719E773A100AA61AD /* ViewController.m in Sources */,
 				B8095C3419E773A100AA61AD /* AppDelegate.m in Sources */,
+				B8AE9F8519EF5F790098A03F /* AudioPlayer.m in Sources */,
 				B8095C3119E773A100AA61AD /* main.m in Sources */,
 				B8095C5619E7808A00AA61AD /* Track.m in Sources */,
 			);

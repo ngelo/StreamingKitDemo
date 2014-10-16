@@ -14,13 +14,11 @@
 
 #import "Track.h"
 
-@interface AudioPlayer ()
+@interface AudioPlayer () <AVAudioSessionDelegate>
 
 @property (nonatomic, strong, readwrite) NSArray *tracks;
 
 @property (nonatomic, strong, readwrite) Track *currentTrack;
-
-@property (nonatomic, strong) MPMoviePlayerController *audioPlayer;
 
 @end
 
@@ -37,21 +35,34 @@
     return _currentTrack;
 }
 
+- (NSUInteger)currentTrackIndex
+{
+    return [self.tracks indexOfObject:self.currentTrack];
+}
+
 #pragma mark Creating and Initializing an Audio Player
 
-- (instancetype)initWithTracks:(NSArray *)tracks
+- (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.tracks = tracks;
-        
-        self.audioPlayer = [[MPMoviePlayerController alloc] initWithContentURL:self.currentTrack.streamingURL];
-        self.audioPlayer.controlStyle = MPMovieControlStyleEmbedded;
-        self.audioPlayer.shouldAutoplay = NO;
-        self.audioPlayer.view.hidden = YES;
-        [self.audioPlayer prepareToPlay];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(togglePlayPause) name:@"TogglePlayPause" object:nil];
     }
     return self;
+}
+
+- (instancetype)initWithTracks:(NSArray *)tracks
+{
+    self = [self init];
+    if (self) {
+        self.tracks = tracks;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark Configuring the Audio Player
@@ -59,6 +70,8 @@
 - (void)configureBackgroundAudio
 {
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     NSError *setCategoryError;
     BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
@@ -87,7 +100,10 @@
     
     // Configure the device's media player info center.
     MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
-    infoCenter.nowPlayingInfo = @{MPMediaItemPropertyTitle: @"Simple Things"};
+    infoCenter.nowPlayingInfo = @{MPMediaItemPropertyAlbumTitle: self.currentTrack.album,
+                                  MPMediaItemPropertyArtist: self.currentTrack.artist,
+                                  MPMediaItemPropertyArtwork: [[MPMediaItemArtwork alloc] initWithImage:self.currentTrack.albumArtwork],
+                                  MPMediaItemPropertyTitle: self.currentTrack.title};
 }
 
 - (void)playPreviousTrack
@@ -111,7 +127,7 @@
 {
     // If the current track is the last track, do not play the previous track.
     NSUInteger currentTrackIndex = [self.tracks indexOfObject:self.currentTrack];
-    if (currentTrackIndex >= [self.tracks count]) {
+    if (currentTrackIndex == [self.tracks count] - 1) {
         NSLog(@"Current track is the first track");
         return;
     }
@@ -124,6 +140,15 @@
     
     // Play the new current track.
     [self playCurrentTrack];
+}
+
+- (void)togglePlayPause
+{
+    if (self.state == STKAudioPlayerStatePlaying) {
+        [self pause];
+    } else if (self.state == STKAudioPlayerStatePaused) {
+        [self resume];
+    }
 }
 
 @end
