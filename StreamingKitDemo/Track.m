@@ -15,7 +15,7 @@
     return [NSString stringWithFormat:@"Track:\n\tTitle: %@\n\tAlbum: %@\n\tArtist: %@", self.title, self.album, self.artist];
 }
 
-+ (NSArray *)allSongs
++ (NSArray *)allTracks
 {
     Track *simpleThings = [[Track alloc] init];
     simpleThings.title = @"Simple Things";

@@ -20,6 +20,6 @@
 
 @property (nonatomic, strong) NSURL *streamingURL;
 
-+ (NSArray *)allSongs;
++ (NSArray *)allTracks;
 
 @end
