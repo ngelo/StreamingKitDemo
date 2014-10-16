@@ -110,19 +110,14 @@
 		B8095C2D19E773A100AA61AD /* StreamingKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				B88B7B5819E7922500FD1F08 /* StreamingKitDemo.entitlements */,
+				B8D7C8B419EF77C700CE4F83 /* Controller */,
+				B8D7C8B319EF77BE00CE4F83 /* Model */,
 				B8095C3219E773A100AA61AD /* AppDelegate.h */,
 				B8095C3319E773A100AA61AD /* AppDelegate.m */,
-				B8095C3519E773A100AA61AD /* AudioPlayerViewController.h */,
-				B8095C3619E773A100AA61AD /* AudioPlayerViewController.m */,
 				B8095C3819E773A100AA61AD /* Main.storyboard */,
 				B8095C3B19E773A100AA61AD /* Images.xcassets */,
 				B8095C3D19E773A100AA61AD /* LaunchScreen.xib */,
 				B8095C2E19E773A100AA61AD /* Supporting Files */,
-				B8095C5419E7808A00AA61AD /* Track.h */,
-				B8095C5519E7808A00AA61AD /* Track.m */,
-				B8AE9F8319EF5F790098A03F /* AudioPlayer.h */,
-				B8AE9F8419EF5F790098A03F /* AudioPlayer.m */,
 			);
 			path = StreamingKitDemo;
 			sourceTree = "<group>";
@@ -130,6 +125,7 @@
 		B8095C2E19E773A100AA61AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B88B7B5819E7922500FD1F08 /* StreamingKitDemo.entitlements */,
 				B8095C2F19E773A100AA61AD /* Info.plist */,
 				B8095C3019E773A100AA61AD /* main.m */,
 			);
@@ -151,6 +147,26 @@
 				B8095C4919E773A100AA61AD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8D7C8B319EF77BE00CE4F83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8AE9F8319EF5F790098A03F /* AudioPlayer.h */,
+				B8AE9F8419EF5F790098A03F /* AudioPlayer.m */,
+				B8095C5419E7808A00AA61AD /* Track.h */,
+				B8095C5519E7808A00AA61AD /* Track.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B8D7C8B419EF77C700CE4F83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8095C3519E773A100AA61AD /* AudioPlayerViewController.h */,
+				B8095C3619E773A100AA61AD /* AudioPlayerViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		C307509DDF796EA3CBBA304E /* Frameworks */ = {
