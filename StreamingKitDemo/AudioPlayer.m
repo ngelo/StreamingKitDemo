@@ -89,12 +89,7 @@
 #pragma mark Playing the Tracks
 
 - (void)playCurrentTrack
-{
-    // If the audio player is currently playing, stop it.
-    if (self.state == STKAudioPlayerStatePlaying) {
-        [self stop];
-    }
-    
+{    
     // Start streaming and playing the current track.
     [self playURL:self.currentTrack.streamingURL];
     
