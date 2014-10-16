@@ -22,7 +22,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *trackArtistAlbumLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *albumArtworkImageView;
 
-@property (nonatomic, strong) STKAudioPlayer *audioplayer;
+@property (nonatomic, strong) STKAudioPlayer *audioPlayer;
 
 @property (nonatomic, strong) NSArray *tracks;
 @property (nonatomic) NSUInteger currentTrackIndex;
@@ -56,16 +56,15 @@
 - (IBAction)toggleAudioPlayer:(UIButton *)toggleAudioPlayerButton
 {
     // Pause the current track.
-    if (self.audioplayer.state == STKAudioPlayerStatePlaying) {
-        [self.audioplayer pause];
+    if (self.audioPlayer.state == STKAudioPlayerStatePlaying) {
+        [self.audioPlayer pause];
         
         [toggleAudioPlayerButton setImage:[UIImage imageNamed:@"Play"] forState:UIControlStateNormal];
     }
     
     // Play the current track.
-    else if (self.audioplayer.state == STKAudioPlayerStatePaused ||
-             self.audioplayer.state == STKAudioPlayerStateStopped ||
-             self.audioplayer.state == STKAudioPlayerStateReady) {
+    else if (self.audioPlayer.state == STKAudioPlayerStateStopped ||
+             self.audioPlayer.state == STKAudioPlayerStateReady) {
         // Play the song.
         [self playCurrentTrack];
         
@@ -102,12 +101,12 @@
     self.albumArtworkImageView.image = currentTrack.albumArtwork;
     
     // Stop the current track.
-    [self.audioplayer stop];
+    [self.audioPlayer stop];
     
-    NSLog(@"Current audio player state: %d", self.audioplayer.state);
+    NSLog(@"Current audio player state: %d", self.audioPlayer.state);
     
     // Start streaming the track.
-    [self.audioplayer playURL:currentTrack.streamingURL];
+    [self.audioPlayer playURL:currentTrack.streamingURL];
 }
 
 // Observer pattern implementation.
@@ -124,8 +123,8 @@
 {
     [super viewDidLoad];
     
-    self.audioplayer = [[STKAudioPlayer alloc] init];
-    self.audioplayer.delegate = self;
+    self.audioPlayer = [[STKAudioPlayer alloc] init];
+    self.audioPlayer.delegate = self;
     
     self.tracks = [Track allSongs];
     self.currentTrackIndex = 0;
