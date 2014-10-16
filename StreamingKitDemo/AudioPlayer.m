@@ -47,6 +47,8 @@
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(togglePlayPause) name:@"TogglePlayPause" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPreviousTrack) name:@"PlayPreviousTrack" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playNextTrack) name:@"PlayNextTrack" object:nil];
     }
     return self;
 }

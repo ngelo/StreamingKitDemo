@@ -29,6 +29,14 @@
                 NSLog(@"Pause");
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"TogglePlayPause" object:nil];
                 break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                NSLog(@"PreviousTrack");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayPreviousTrack" object:nil];
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                NSLog(@"Next Track");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayNextTrack" object:nil];
+                break;
             default:
                 break;
         }
